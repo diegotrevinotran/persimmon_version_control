@@ -21,4 +21,10 @@ public class Commit implements Serializable {
      * Name of the internal repository.
      */
     private final String REPO_NAME = "persimmon";
+
+    /**
+     * The parent Commit that preceded this Commit.
+     */
+    private Commit parent;
+    // TODO add constructor
 }
