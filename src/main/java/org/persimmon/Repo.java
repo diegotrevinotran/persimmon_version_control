@@ -35,11 +35,11 @@ public class Repo {
         /* Actually do stuff here */
         else {
             // Create hidden directory and necessary subdirectories
-            Path commitsSubDir = initDir.resolve("commits");
+            Path snapshotsSubDir = initDir.resolve("snapshots");
             Path blobsSubDir = initDir.resolve("blobs");
             Files.createDirectory(initDir);
             Files.setAttribute(initDir, "dos:hidden", true);
-            Files.createDirectory(commitsSubDir);
+            Files.createDirectory(snapshotsSubDir);
             Files.createDirectory(blobsSubDir);
         }
     }

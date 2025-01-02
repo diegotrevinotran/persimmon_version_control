@@ -43,7 +43,7 @@ public class UnitTests {
         // Verify all necessary Repo directories are present
         Path initSubDir = initDir.resolve(".persimmon");
         assert Files.exists(initSubDir);
-        assert Files.exists(initSubDir.resolve("commits"));
+        assert Files.exists(initSubDir.resolve("snapshots"));
         assert Files.exists(initSubDir.resolve("blobs"));
     }
 
@@ -58,7 +58,7 @@ public class UnitTests {
         // Verify all necessary Repo directories are present
         Path initSubDir = initDir.resolve(".persimmon");
         assert Files.exists(initSubDir);
-        assert Files.exists(initSubDir.resolve("commits"));
+        assert Files.exists(initSubDir.resolve("snapshots"));
         assert Files.exists(initSubDir.resolve("blobs"));
     }
 

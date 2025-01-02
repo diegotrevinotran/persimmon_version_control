@@ -5,15 +5,15 @@ import java.nio.file.Path;
 import java.time.Instant;
 
 /**
- * Representation of a "snapshot" of a repository.
+ * Representation of a "snapshot" of a repository. Equivalent to a "commit" in git terms.
  */
-public class Commit implements Serializable {
+public class Snapshot implements Serializable {
     /**
-     * The timestamp at which this Commit was created.
+     * The timestamp at which this Snapshot was created.
      */
     private Instant timestamp;
     /**
-     * The message contained by this Commit.
+     * The message contained by this Snapshot.
      */
     private String message;
 
@@ -23,8 +23,8 @@ public class Commit implements Serializable {
     private final String REPO_NAME = "persimmon";
 
     /**
-     * The parent Commit that preceded this Commit.
+     * The parent Snapshot that preceded this Snapshot.
      */
-    private Commit parent;
+    private Snapshot parent;
     // TODO add constructor
 }
