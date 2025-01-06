@@ -1,12 +1,10 @@
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.persimmon.Repo;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,8 +12,8 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UnitTests {
-    public static String test1DirPathString = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "test1";
-    public static String test2DirPathString = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "test2";
+    public static String testDirPrefix = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "working_dirs";
+
     /**
      * Given two files, return whether they are semantically equal (i.e. contains the same content) by comparing their hashcodes.
      *
@@ -36,9 +34,9 @@ public class UnitTests {
     @DisplayName("init command in empty directory")
     public void testInit1() throws IOException {
         // Set up repo in empty directory
-
-        Path initDir = Paths.get(test1DirPathString);
-        Repo initRepo = new Repo(test1DirPathString);
+        String pathString = testDirPrefix + File.separator + "init1";
+        Path initDir = Paths.get(pathString);
+        Repo initRepo = new Repo(pathString);
         initRepo.init();
         // Verify all necessary Repo directories are present
         Path initSubDir = initDir.resolve(".persimmon");
@@ -51,9 +49,9 @@ public class UnitTests {
     @DisplayName("init command in directory with content")
     public void testInit2() throws IOException {
         // Set up repo in empty directory
-
-        Path initDir = Paths.get(test2DirPathString);
-        Repo initRepo = new Repo(test2DirPathString);
+        String pathString = testDirPrefix + File.separator + "init2";
+        Path initDir = Paths.get(pathString);
+        Repo initRepo = new Repo(pathString);
         initRepo.init();
         // Verify all necessary Repo directories are present
         Path initSubDir = initDir.resolve(".persimmon");
@@ -63,5 +61,4 @@ public class UnitTests {
     }
 
     // TODO add unit tests for add command
-
 }
